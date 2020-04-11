@@ -21,6 +21,18 @@ class _HomePageState extends State<HomePage> {
               onPressed: () {})
         ],
       ),
+      drawer: Drawer(
+          child: ListView(children: <Widget>[
+        new UserAccountsDrawerHeader(
+          accountName: Text("Dagmawi Negussu"),
+          accountEmail: Text("daginegussu@gmail.com"),
+          currentAccountPicture: GestureDetector(
+            child: CircleAvatar(
+                backgroundImage: AssetImage('assets/dagidark.JPG')),
+          ),
+          decoration: BoxDecoration(color: Colors.red),
+        ),
+      ])),
     );
   }
 }
