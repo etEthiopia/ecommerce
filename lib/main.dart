@@ -1,8 +1,6 @@
+import 'package:ecommerceapp/pages/home.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(new MaterialApp(
-      home: Container(color: Colors.white, child: Text("Hello World 2"))));
+  runApp(MaterialApp(home: HomePage()));
 }
-
-
