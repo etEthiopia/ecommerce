@@ -8,8 +8,15 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text("Home Page"),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Fash App'),
+        backgroundColor: Colors.red,
+        actions: <Widget>[
+          IconButton(
+              icon: Icon(Icons.search), color: Colors.white, onPressed: () {})
+        ],
+      ),
     );
   }
 }
