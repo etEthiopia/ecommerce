@@ -1,3 +1,4 @@
+import 'package:ecommerceapp/components/similar_products.dart';
 import 'package:flutter/material.dart';
 
 class ProductDetails extends StatefulWidget {
@@ -227,6 +228,12 @@ class _ProductDetailsState extends State<ProductDetails> {
                     Text("NEW", style: TextStyle(fontWeight: FontWeight.bold))),
           ],
         ),
+        Divider(),
+        Padding(
+          padding: EdgeInsets.fromLTRB(16.0, 24.0, 8.0, 8.0),
+          child: Text("Similar Products"),
+        ),
+        Container(height: 200, child: SimilarProducts())
       ]),
     );
   }
