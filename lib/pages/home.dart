@@ -23,7 +23,9 @@ class _HomePageState extends State<HomePage> {
           IconButton(
               icon: Icon(Icons.shopping_cart),
               color: Colors.white,
-              onPressed: () {})
+              onPressed: () {
+                Navigator.of(context).pushNamed("/mycart");
+              })
         ],
       ),
 

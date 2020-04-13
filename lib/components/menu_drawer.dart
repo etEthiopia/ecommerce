@@ -39,9 +39,11 @@ class MenuDrawer extends StatelessWidget {
                   color: Colors.red,
                 ))),
         InkWell(
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).pushNamed("/mycart");
+            },
             child: ListTile(
-                title: Text("Shopping Cart"),
+                title: Text("My Cart"),
                 leading: Icon(
                   Icons.shopping_cart,
                   color: Colors.red,
