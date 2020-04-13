@@ -34,11 +34,10 @@ class Category extends StatelessWidget {
         child: InkWell(
             onTap: () {},
             child: Container(
-              width: 90.0,
+              width: 70.0,
               child: ListTile(
                 title: Image.asset(
                   icon,
-                  height: 40.0,
                   width: 50.0,
                 ),
                 subtitle: Container(

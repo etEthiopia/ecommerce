@@ -14,7 +14,7 @@ class _ProductsGridState extends State<ProductsGrid> {
       "price": 84.99,
     },
     {
-      "name": "Red Dress",
+      "name": "Dress",
       "pic": "assets/products/dress1.jpeg",
       "prevPrice": 99.99,
       "price": 74.99,
@@ -25,6 +25,30 @@ class _ProductsGridState extends State<ProductsGrid> {
       "prevPrice": 199.99,
       "price": 149.99
     },
+    {
+      "name": "Blazer 2",
+      "pic": "assets/products/blazer2.jpeg",
+      "prevPrice": 109.99,
+      "price": 99.99
+    },
+    {
+      "name": "Shoe",
+      "pic": "assets/products/shoe1.jpg",
+      "prevPrice": 49.99,
+      "price": 34.99
+    },
+    {
+      "name": "Sweat Pants",
+      "pic": "assets/products/pants1.jpg",
+      "prevPrice": 29.99,
+      "price": 14.99
+    },
+    // {
+    //   "name": "Dress 2",
+    //   "pic": "assets/products/dress2.jpeg",
+    //   "prevPrice": 109.99,
+    //   "price": 84.99,
+    // },
   ];
 
   @override
@@ -72,23 +96,36 @@ class SingleProduct extends StatelessWidget {
                     child: GridTile(
                         footer: Container(
                             color: Colors.white70,
-                            child: ListTile(
-                              leading: Text(name,
-                                  style:
-                                      TextStyle(fontWeight: FontWeight.bold)),
-                              title: Text(
-                                "\$$price",
-                                textAlign: TextAlign.end,
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w800,
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 5.0, vertical: 7.0),
+                              child: Row(
+                                children: <Widget>[
+                                  Expanded(
+                                      child: Text(
+                                    name,
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  )),
+                                  Expanded(
+                                    child: Text(
+                                      "\$$prevPrice",
+                                      textAlign: TextAlign.end,
+                                      style: TextStyle(
+                                          decoration:
+                                              TextDecoration.lineThrough),
                                     ),
-                              ),
-                              subtitle: Text(
-                                "\$$prevPrice",
-                                textAlign: TextAlign.end,
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w700,
-                                    decoration: TextDecoration.lineThrough),
+                                  ),
+                                  Expanded(
+                                    child: Text(
+                                      "\$$price",
+                                      textAlign: TextAlign.end,
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w800,
+                                          color: Colors.red),
+                                    ),
+                                  ),
+                                ],
                               ),
                             )),
                         child: Image.asset(

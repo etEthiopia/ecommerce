@@ -26,10 +26,6 @@ class _ProductDetailsState extends State<ProductDetails> {
         actions: <Widget>[
           IconButton(
               icon: Icon(Icons.search), color: Colors.white, onPressed: () {}),
-          IconButton(
-              icon: Icon(Icons.shopping_cart),
-              color: Colors.white,
-              onPressed: () {})
         ],
       ),
       body: ListView(children: <Widget>[
@@ -183,7 +179,54 @@ class _ProductDetailsState extends State<ProductDetails> {
                 icon: Icon(Icons.favorite_border, color: Colors.red),
                 onPressed: () {}),
           ],
-        )
+        ),
+        Divider(),
+        ListTile(
+          contentPadding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 15.0),
+          title: Padding(
+              padding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 1.0),
+              child:
+                  Text("Product details", style: TextStyle(color: Colors.red))),
+          subtitle: Text(
+              "SupEd company have only one project in hand at this time. It’s a company that does its own project and the project was a mobile application and had already a full team working on it so there was no place for me. The CEO insisted that I peruse to go on my own project and the company would support me. "),
+        ),
+        Divider(),
+        Row(
+          children: <Widget>[
+            Padding(
+                padding: EdgeInsets.fromLTRB(12.0, 5.0, 5.0, 5.0),
+                child:
+                    Text("Product Name", style: TextStyle(color: Colors.grey))),
+            Padding(
+                padding: EdgeInsets.all(5.0),
+                child: Text("Name X",
+                    style: TextStyle(fontWeight: FontWeight.bold))),
+          ],
+        ),
+        Row(
+          children: <Widget>[
+            Padding(
+                padding: EdgeInsets.fromLTRB(12.0, 5.0, 5.0, 5.0),
+                child: Text("Product Brand",
+                    style: TextStyle(color: Colors.grey))),
+            Padding(
+                padding: EdgeInsets.all(5.0),
+                child:
+                    Text("Nam", style: TextStyle(fontWeight: FontWeight.bold))),
+          ],
+        ),
+        Row(
+          children: <Widget>[
+            Padding(
+                padding: EdgeInsets.fromLTRB(12.0, 5.0, 5.0, 5.0),
+                child: Text("Product Condition",
+                    style: TextStyle(color: Colors.grey))),
+            Padding(
+                padding: EdgeInsets.all(5.0),
+                child:
+                    Text("NEW", style: TextStyle(fontWeight: FontWeight.bold))),
+          ],
+        ),
       ]),
     );
   }
