@@ -1,3 +1,4 @@
+import 'package:ecommerceapp/components/cart_items.dart';
 import 'package:flutter/material.dart';
 
 class CartPage extends StatefulWidget {
@@ -18,13 +19,14 @@ class _CartPageState extends State<CartPage> {
               icon: Icon(Icons.search), color: Colors.white, onPressed: () {}),
         ],
       ),
+      body: CartItems(),
       bottomNavigationBar: Container(
           color: Colors.white,
           child: Row(
             children: <Widget>[
               Expanded(
-                child: ListTile(
-                    title: Text("Total: "), subtitle: Text("\$249.99")),
+                child:
+                    ListTile(title: Text("Total "), subtitle: Text("\$249.99")),
               ),
               Expanded(
                 child: MaterialButton(

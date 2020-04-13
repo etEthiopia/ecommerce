@@ -95,7 +95,7 @@ class SingleProduct extends StatelessWidget {
                     },
                     child: GridTile(
                         footer: Container(
-                            color: Colors.white70,
+                            color: Colors.white,
                             child: Padding(
                               padding: EdgeInsets.symmetric(
                                   horizontal: 5.0, vertical: 7.0),
