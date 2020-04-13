@@ -54,6 +54,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                       Expanded(
                         child: Text(
                           "\$$prevPrice",
+                          textAlign: TextAlign.end,
                           style: TextStyle(
                               color: Colors.grey,
                               decoration: TextDecoration.lineThrough),
@@ -62,7 +63,9 @@ class _ProductDetailsState extends State<ProductDetails> {
                       Expanded(
                         child: Text(
                           "\$$price",
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          textAlign: TextAlign.end,
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, color: Colors.red),
                         ),
                       )
                     ],
@@ -75,7 +78,24 @@ class _ProductDetailsState extends State<ProductDetails> {
             Expanded(
                 flex: 2,
                 child: MaterialButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            title: Text("Size"),
+                            content: Text("Choose a size"),
+                            actions: <Widget>[
+                              MaterialButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop(context);
+                                },
+                                child: Text("Close"),
+                              )
+                            ],
+                          );
+                        });
+                  },
                   color: Colors.white,
                   textColor: Colors.grey,
                   elevation: 0.5,
@@ -89,7 +109,22 @@ class _ProductDetailsState extends State<ProductDetails> {
             Expanded(
                 flex: 2,
                 child: MaterialButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                              title: Text("Color"),
+                              content: Text("Choose a Color"),
+                              actions: <Widget>[
+                                MaterialButton(
+                                    onPressed: () {
+                                      Navigator.of(context).pop(context);
+                                    },
+                                    child: Text("Close"))
+                              ]);
+                        });
+                  },
                   color: Colors.white,
                   textColor: Colors.grey,
                   elevation: 0.5,
@@ -103,7 +138,22 @@ class _ProductDetailsState extends State<ProductDetails> {
             Expanded(
                 flex: 3,
                 child: MaterialButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                              title: Text("Quantity"),
+                              content: Text("Choose a Quantity"),
+                              actions: <Widget>[
+                                MaterialButton(
+                                    onPressed: () {
+                                      Navigator.of(context).pop(context);
+                                    },
+                                    child: Text("Close"))
+                              ]);
+                        });
+                  },
                   color: Colors.white,
                   textColor: Colors.grey,
                   elevation: 0.5,

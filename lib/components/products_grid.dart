@@ -78,10 +78,14 @@ class SingleProduct extends StatelessWidget {
                                       TextStyle(fontWeight: FontWeight.bold)),
                               title: Text(
                                 "\$$price",
-                                style: TextStyle(fontWeight: FontWeight.w800),
+                                textAlign: TextAlign.end,
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w800,
+                                    ),
                               ),
                               subtitle: Text(
                                 "\$$prevPrice",
+                                textAlign: TextAlign.end,
                                 style: TextStyle(
                                     fontWeight: FontWeight.w700,
                                     decoration: TextDecoration.lineThrough),
