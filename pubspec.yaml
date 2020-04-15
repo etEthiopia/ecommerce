@@ -27,10 +27,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-<<<<<<< HEAD
   carousel_pro: ^0.0.13
-=======
->>>>>>> aa5ec2d01343c02276ff5a709ec99da40f06639e
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -44,7 +41,6 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-<<<<<<< HEAD
     - assets/cats/tshirt.png
     - assets/cats/dress.png
     - assets/cats/accessories.png
@@ -64,9 +60,6 @@ flutter:
     - assets/products/shoe1.jpg
     - assets/products/skt1.jpeg
     - assets/products/skt2.jpeg
-=======
-    - assets/
->>>>>>> aa5ec2d01343c02276ff5a709ec99da40f06639e
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
   # For details regarding adding assets from package dependencies, see
