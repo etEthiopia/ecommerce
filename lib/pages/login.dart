@@ -18,8 +18,27 @@ class _LoginState extends State<Login> {
   bool isLoggedIn = false;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
-    );
+    return Container();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    isSignedIn();
+  }
+
+  void isSignedIn() async {
+    setState(() {
+      loading = true;
+    });
+
+    preferences = await SharedPreferences.getInstance();
+    isLoggedIn = await googleSignIn.isSignedIn();
+    if (isLoggedIn) {
+      Navigator.pushReplacementNamed(context, "/home");
+    }
+    setState(() {
+      loading = false;
+    });
   }
 }
