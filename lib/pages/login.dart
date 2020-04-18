@@ -41,4 +41,34 @@ class _LoginState extends State<Login> {
       loading = false;
     });
   }
+
+  Future handleSignIn() async {
+    preferences = await SharedPreferences.getInstance();
+    setState(() {
+      loading = true;
+    });
+
+    GoogleSignInAccount googleUser = await googleSignIn.signIn();
+    GoogleSignInAuthentication googleAuth = await googleUser.authentication;
+    FirebaseUser firebaseUser = await firebaseAuth.signInWithGoogle(
+        idToken: googleAuth.idToken, accessToken: googleAuth.accessToken);
+    if (firebaseUser != null) {
+      final QuerySnapshot result = await Firestore.instance
+          .collection('users')
+          .where("id", isEqualTo: firebaseUser.uid)
+          .getDocuments();
+      
+      final List<DocumentSnapshot> documents = result.documents;
+      if(documents.length == 0){
+        // register the user our collection
+        Firestore.instance.collection("users").document(
+          firebaseUser.uid
+        ).setData({
+         "id" : firebaseUser.uid, 
+         "username" : firebaseUser.displayName,
+         "pic" : firebaseUser.photoUrl
+        });
+      }
+    }
+  }
 }
