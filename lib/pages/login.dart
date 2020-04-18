@@ -18,7 +18,26 @@ class _LoginState extends State<Login> {
   bool isLoggedIn = false;
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+        appBar: AppBar(
+            title: Text("Login"),
+            centerTitle: true,
+            elevation: 0.5,
+            backgroundColor: Colors.white),
+        body: Stack(children: <Widget>[
+          Center(
+            child: FlatButton(
+                onPressed: () {
+                  handleSignIn();
+                },
+                child: Text("Sign In with Google")),
+          ),
+          Visibility(
+              child: Container(
+                  color: Colors.white.withOpacity(0.7),
+                  child: CircularProgressIndicator(
+                      valueColor: AlwaysStoppedAnimation<Color>(Colors.red))))
+        ]));
   }
 
   @override
@@ -81,9 +100,11 @@ class _LoginState extends State<Login> {
       Fluttertoast.showToast(msg: "Login Successful");
       setState(() {
         loading = false;
+        isLoggedIn = true;
       });
+      Navigator.pushReplacementNamed(context, "/home");
     } else {
-
+      Fluttertoast.showToast(msg: "Login Unsuccessful");
     }
   }
 }
