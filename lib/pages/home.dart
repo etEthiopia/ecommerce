@@ -33,10 +33,11 @@ class _HomePageState extends State<HomePage> {
       drawer: MenuDrawer(),
 
       // The body of home page
-      body: ListView(
+      body: Column(
         children: <Widget>[
           // Carousel of promo images
-          ImageCarousel(),
+          Flexible(child: ImageCarousel()),
+          //ImageCarousel(),
 
           // Title of Cateogries
           Padding(
@@ -54,7 +55,7 @@ class _HomePageState extends State<HomePage> {
           ),
 
           // The ProductsGrid in Cards
-          Container(height: 200, child: ProductsGrid())
+          Flexible(child: ProductsGrid())
         ],
       ),
     );

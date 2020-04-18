@@ -4,7 +4,7 @@ class CategoriesHListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 70.0,
+      height: 90.0,
       child: ListView(
         scrollDirection: Axis.horizontal,
         children: <Widget>[
@@ -34,7 +34,7 @@ class Category extends StatelessWidget {
         child: InkWell(
             onTap: () {},
             child: Container(
-              width: 80.0,
+              width: 90.0,
               child: ListTile(
                 title: Image.asset(
                   icon,
