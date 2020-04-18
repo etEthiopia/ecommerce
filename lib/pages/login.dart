@@ -57,18 +57,33 @@ class _LoginState extends State<Login> {
           .collection('users')
           .where("id", isEqualTo: firebaseUser.uid)
           .getDocuments();
-      
+
       final List<DocumentSnapshot> documents = result.documents;
-      if(documents.length == 0){
+      if (documents.length == 0) {
         // register the user our collection
-        Firestore.instance.collection("users").document(
-          firebaseUser.uid
-        ).setData({
-         "id" : firebaseUser.uid, 
-         "username" : firebaseUser.displayName,
-         "pic" : firebaseUser.photoUrl
+        Firestore.instance
+            .collection("users")
+            .document(firebaseUser.uid)
+            .setData({
+          "id": firebaseUser.uid,
+          "username": firebaseUser.displayName,
+          "pic": firebaseUser.photoUrl
         });
+        await preferences.setString("id", firebaseUser.uid);
+        await preferences.setString("username", firebaseUser.displayName);
+        await preferences.setString("pic", firebaseUser.photoUrl);
+      } else {
+        await preferences.setString("id", documents[0]["id"]);
+        await preferences.setString("username", documents[0]["username"]);
+        await preferences.setString("pic", documents[0]["pic"]);
       }
+
+      Fluttertoast.showToast(msg: "Login Successful");
+      setState(() {
+        loading = false;
+      });
+    } else {
+
     }
   }
 }
