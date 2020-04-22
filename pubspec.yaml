@@ -28,11 +28,11 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   carousel_pro: ^0.0.13
-  firebase_auth: ^0.6.6
-  cloud_firestore: ^0.8.2+3
-  google_sign_in: ^3.2.4
+  firebase_auth: ^0.16.0
+  cloud_firestore: ^0.13.5
+  google_sign_in: ^4.4.2
   shared_preferences: ^0.4.3
-  fluttertoast: ^2.2.6
+  #fluttertoast: ^2.2.6
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

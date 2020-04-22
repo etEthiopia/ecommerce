@@ -1,5 +1,3 @@
-import 'dart:js';
-
 import 'package:ecommerceapp/pages/cart.dart';
 import 'package:ecommerceapp/pages/home.dart';
 import 'package:ecommerceapp/pages/login.dart';

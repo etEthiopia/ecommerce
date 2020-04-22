@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+//import 'package:fluttertoast/fluttertoast.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -69,8 +69,13 @@ class _LoginState extends State<Login> {
 
     GoogleSignInAccount googleUser = await googleSignIn.signIn();
     GoogleSignInAuthentication googleAuth = await googleUser.authentication;
-    FirebaseUser firebaseUser = await firebaseAuth.signInWithGoogle(
-        idToken: googleAuth.idToken, accessToken: googleAuth.accessToken);
+    final AuthCredential credential = GoogleAuthProvider.getCredential(
+      accessToken: googleAuth.accessToken,
+      idToken: googleAuth.idToken,
+    );
+    final AuthResult authResult =
+        await firebaseAuth.signInWithCredential(credential);
+    FirebaseUser firebaseUser = authResult.user;
     if (firebaseUser != null) {
       final QuerySnapshot result = await Firestore.instance
           .collection('users')
@@ -97,14 +102,14 @@ class _LoginState extends State<Login> {
         await preferences.setString("pic", documents[0]["pic"]);
       }
 
-      Fluttertoast.showToast(msg: "Login Successful");
+      //Fluttertoast.showToast(msg: "Login Successful");
       setState(() {
         loading = false;
         isLoggedIn = true;
       });
       Navigator.pushReplacementNamed(context, "/home");
     } else {
-      Fluttertoast.showToast(msg: "Login Unsuccessful");
+      //Fluttertoast.showToast(msg: "Login Unsuccessful");
     }
   }
 }
