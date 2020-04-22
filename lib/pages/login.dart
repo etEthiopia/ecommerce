@@ -13,31 +13,138 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   final GoogleSignIn googleSignIn = GoogleSignIn();
   final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+  final _formKey = GlobalKey<FormState>();
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
   SharedPreferences preferences;
   bool loading = false;
   bool isLoggedIn = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-            title: Text("Login"),
-            centerTitle: true,
-            elevation: 0.5,
-            backgroundColor: Colors.white),
-        body: Stack(children: <Widget>[
-          Center(
-            child: FlatButton(
-                onPressed: () {
-                  handleSignIn();
-                },
-                child: Text("Sign In with Google")),
+      backgroundColor: Colors.red,
+      body: SafeArea(
+        child: Stack(children: <Widget>[
+          Image.asset(
+            'assets/images/loginpicture.jpg',
+            fit: BoxFit.cover,
+            height: double.infinity,
+            width: double.infinity,
           ),
+          Container(
+              margin: EdgeInsets.fromLTRB(0.0, 40.0, 0.0, 0.0),
+              alignment: Alignment.topCenter,
+              child: Image.asset(
+                "assets/images/logo.png",
+                width: 75.0,
+              )),
+          Container(
+              padding: EdgeInsets.only(top: 200.0),
+              alignment: Alignment.center,
+              child: Center(
+                child: Form(
+                  key: _formKey,
+                  child: Flex(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Material(
+                          borderRadius: BorderRadius.circular(5.0),
+                          color: Colors.white.withOpacity(0.8),
+                          elevation: 0.0,
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 12.0, vertical: 4.0),
+                            child: TextFormField(
+                              decoration: InputDecoration(
+                                  hintText: "Email",
+                                  icon: Icon(Icons.mail),
+                                  isDense: true),
+                              keyboardType: TextInputType.emailAddress,
+                              controller: _emailController,
+                              validator: (value) {
+                                if (value.isEmpty) {
+                                  Pattern pattern =
+                                      r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+                                  RegExp regex = RegExp(pattern);
+                                  if (!regex.hasMatch(value)) {
+                                    return 'Enter a valid email';
+                                  } else {
+                                    return null;
+                                  }
+                                }
+                              },
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Material(
+                          borderRadius: BorderRadius.circular(5.0),
+                          color: Colors.white.withOpacity(0.8),
+                          elevation: 0.0,
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 12.0, vertical: 4.0),
+                            child: TextFormField(
+                              decoration: InputDecoration(
+                                  hintText: "Password",
+                                  icon: Icon(Icons.lock),
+                                  isDense: true),
+                              controller: _passwordController,
+                              validator: (value) {
+                                if (value.isEmpty) {
+                                  return "The password cannot be empty";
+                                } else if (value.length < 6) {
+                                  return "The password length must be at least six";
+                                }
+                                return null;
+                              },
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: MaterialButton(
+                            minWidth: MediaQuery.of(context).size.width,
+                            onPressed: () {},
+                            color: Colors.red,
+                            textColor: Colors.white,
+                            elevation: 0.8,
+                            child: Text("Login")),
+                      ),
+                    ],
+                    direction: Axis.vertical,
+                  ),
+                ),
+              )),
           Visibility(
-              child: Container(
-                  color: Colors.white.withOpacity(0.7),
-                  child: CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation<Color>(Colors.red))))
-        ]));
+              visible: loading ?? true,
+              child: Center(
+                child: Container(
+                    color: Colors.white.withOpacity(0.7),
+                    child: CircularProgressIndicator(
+                        valueColor: AlwaysStoppedAnimation<Color>(Colors.red))),
+              )),
+        ]),
+      ),
+      bottomNavigationBar: Container(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: FlatButton(
+              color: Colors.red,
+              onPressed: () {
+                handleSignIn();
+              },
+              child: Text(
+                "Sign In with Google",
+                style: TextStyle(color: Colors.white),
+              )),
+        ),
+      ),
+    );
   }
 
   @override
@@ -47,18 +154,18 @@ class _LoginState extends State<Login> {
   }
 
   void isSignedIn() async {
-    setState(() {
-      loading = true;
-    });
+    // setState(() {
+    //   loading = true;
+    // });
 
-    preferences = await SharedPreferences.getInstance();
-    isLoggedIn = await googleSignIn.isSignedIn();
-    if (isLoggedIn) {
-      Navigator.pushReplacementNamed(context, "/home");
-    }
-    setState(() {
-      loading = false;
-    });
+    // preferences = await SharedPreferences.getInstance();
+    // isLoggedIn = await googleSignIn.isSignedIn();
+    // if (isLoggedIn) {
+    //   Navigator.pushReplacementNamed(context, "/home");
+    // }
+    // setState(() {
+    //   loading = false;
+    // });
   }
 
   Future handleSignIn() async {
@@ -101,7 +208,7 @@ class _LoginState extends State<Login> {
         await preferences.setString("username", documents[0]["username"]);
         await preferences.setString("pic", documents[0]["pic"]);
       }
-
+      print("LOGIN SUCCESSFUL");
       //Fluttertoast.showToast(msg: "Login Successful");
       setState(() {
         loading = false;
@@ -109,6 +216,7 @@ class _LoginState extends State<Login> {
       });
       Navigator.pushReplacementNamed(context, "/home");
     } else {
+      print("LOGIN UNSUCCESSFUL");
       //Fluttertoast.showToast(msg: "Login Unsuccessful");
     }
   }

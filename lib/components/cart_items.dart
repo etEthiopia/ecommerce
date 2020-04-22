@@ -9,7 +9,7 @@ class _CartItemsState extends State<CartItems> {
   var productList = [
     {
       "name": "Blazer",
-      "pic": "assets/products/blazer1.jpeg",
+      "pic": "assets/images/products/blazer1.jpeg",
       "price": 84.99,
       "size": "M",
       "color": "Black",
@@ -17,7 +17,7 @@ class _CartItemsState extends State<CartItems> {
     },
     {
       "name": "Dress",
-      "pic": "assets/products/dress1.jpeg",
+      "pic": "assets/images/products/dress1.jpeg",
       "price": 74.99,
       "size": "S",
       "color": "Red",
@@ -25,7 +25,7 @@ class _CartItemsState extends State<CartItems> {
     },
     {
       "name": "Hills",
-      "pic": "assets/products/hills1.jpeg",
+      "pic": "assets/images/products/hills1.jpeg",
       "price": 149.99,
       "size": "8",
       "color": "Brown",
@@ -33,7 +33,7 @@ class _CartItemsState extends State<CartItems> {
     },
     {
       "name": "Blazer 2",
-      "pic": "assets/products/blazer2.jpeg",
+      "pic": "assets/images/products/blazer2.jpeg",
       "price": 99.99,
       "size": "S",
       "color": "Black",

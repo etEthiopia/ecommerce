@@ -9,43 +9,43 @@ class _ProductsGridState extends State<ProductsGrid> {
   var productList = [
     {
       "name": "Blazer",
-      "pic": "assets/products/blazer1.jpeg",
+      "pic": "assets/images/products/blazer1.jpeg",
       "prevPrice": 119.99,
       "price": 84.99,
     },
     {
       "name": "Dress",
-      "pic": "assets/products/dress1.jpeg",
+      "pic": "assets/images/products/dress1.jpeg",
       "prevPrice": 99.99,
       "price": 74.99,
     },
     {
       "name": "Hills",
-      "pic": "assets/products/hills1.jpeg",
+      "pic": "assets/images/products/hills1.jpeg",
       "prevPrice": 199.99,
       "price": 149.99
     },
     {
       "name": "Blazer 2",
-      "pic": "assets/products/blazer2.jpeg",
+      "pic": "assets/images/products/blazer2.jpeg",
       "prevPrice": 109.99,
       "price": 99.99
     },
     {
       "name": "Shoe",
-      "pic": "assets/products/shoe1.jpg",
+      "pic": "assets/images/products/shoe1.jpg",
       "prevPrice": 49.99,
       "price": 34.99
     },
     {
       "name": "Sweat Pants",
-      "pic": "assets/products/pants1.jpg",
+      "pic": "assets/images/products/pants1.jpg",
       "prevPrice": 29.99,
       "price": 14.99
     },
     // {
     //   "name": "Dress 2",
-    //   "pic": "assets/products/dress2.jpeg",
+    //   "pic": "assets/images/products/dress2.jpeg",
     //   "prevPrice": 109.99,
     //   "price": 84.99,
     // },

@@ -32,6 +32,7 @@ dev_dependencies:
   cloud_firestore: ^0.13.5
   google_sign_in: ^4.4.2
   shared_preferences: ^0.4.3
+  #flutter_auth_buttons: ^0.8.0
   #fluttertoast: ^2.2.6
 
 # For information on the generic Dart part of this file, see the
@@ -46,25 +47,27 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/cats/tshirt.png
-    - assets/cats/dress.png
-    - assets/cats/accessories.png
-    - assets/cats/formal.png
-    - assets/cats/informal.png
-    - assets/cats/jeans.png
-    - assets/cats/shoe.png
-    - assets/
-    - assets/products/blazer1.jpeg
-    - assets/products/blazer2.jpeg
-    - assets/products/dress1.jpeg
-    - assets/products/dress2.jpeg
-    - assets/products/hills1.jpeg
-    - assets/products/hills2.jpeg
-    - assets/products/pants1.jpg
-    - assets/products/pants2.jpeg
-    - assets/products/shoe1.jpg
-    - assets/products/skt1.jpeg
-    - assets/products/skt2.jpeg
+    - assets/images/
+    # - assets/cats/tshirt.png
+    # - assets/cats/dress.png
+    # - assets/cats/accessories.png
+    # - assets/cats/formal.png
+    # - assets/cats/informal.png
+    # - assets/cats/jeans.png
+    # - assets/cats/shoe.png
+    # - assets/
+    # - assets/products/blazer1.jpeg
+    # - assets/products/blazer2.jpeg
+    # - assets/products/dress1.jpeg
+    # - assets/products/dress2.jpeg
+    # - assets/products/hills1.jpeg
+    # - assets/products/hills2.jpeg
+    # - assets/products/pants1.jpg
+    # - assets/products/pants2.jpeg
+    # - assets/products/shoe1.jpg
+    # - assets/products/skt1.jpeg
+    # - assets/products/skt2.jpeg
+    # - assets/loginpicture.jpg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
   # For details regarding adding assets from package dependencies, see
