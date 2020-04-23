@@ -4,6 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_auth_buttons/flutter_auth_buttons.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -115,6 +116,21 @@ class _LoginState extends State<Login> {
                             elevation: 0.8,
                             child: Text("Login")),
                       ),
+                      Container(
+                        child: Column(
+                          children: <Widget>[
+                            GoogleSignInButton(
+                              splashColor: Colors.red,
+                              onPressed: () {
+                                handleSignIn();
+                              },
+                            ),
+                          ],
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                        ),
+                        width: MediaQuery.of(context).size.width,
+                        padding: EdgeInsets.all(8.0),
+                      )
                     ],
                     direction: Axis.vertical,
                   ),
@@ -130,20 +146,18 @@ class _LoginState extends State<Login> {
               )),
         ]),
       ),
-      bottomNavigationBar: Container(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: FlatButton(
-              color: Colors.red,
-              onPressed: () {
-                handleSignIn();
-              },
-              child: Text(
-                "Sign In with Google",
-                style: TextStyle(color: Colors.white),
-              )),
-        ),
-      ),
+      // bottomNavigationBar: Container(
+      //   child: Padding(
+      //     padding: const EdgeInsets.all(8.0),
+      //     child: FlatButton(
+      //         color: Colors.red,
+      //         onPressed: () {},
+      //         child: Text(
+      //           "Sign In with Google",
+      //           style: TextStyle(color: Colors.white),
+      //         )),
+      //   ),
+      // ),
     );
   }
 
