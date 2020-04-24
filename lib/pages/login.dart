@@ -116,6 +116,15 @@ class _LoginState extends State<Login> {
                             elevation: 0.8,
                             child: Text("Login")),
                       ),
+                      Center(
+                        child: InkWell(
+                          onTap: () {},
+                          child: Text(
+                            "Forgot Password",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      ),
                       Container(
                         child: Column(
                           children: <Widget>[
@@ -130,7 +139,7 @@ class _LoginState extends State<Login> {
                         ),
                         width: MediaQuery.of(context).size.width,
                         padding: EdgeInsets.all(8.0),
-                      )
+                      ),
                     ],
                     direction: Axis.vertical,
                   ),
