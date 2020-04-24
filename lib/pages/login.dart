@@ -125,6 +125,21 @@ class _LoginState extends State<Login> {
                           ),
                         ),
                       ),
+                      Center(
+                          child: RichText(
+                              text: TextSpan(
+                        children: [
+                          TextSpan(
+                              text: "Doesn't have an account? ",
+                              style: TextStyle(color: Colors.white)),
+                          TextSpan(
+                              text: "Sign Up here",
+                              style: TextStyle(
+                                  color: Colors.yellow,
+                                  decoration: TextDecoration.underline))
+                        ],
+                      ))),
+                      Divider(),
                       Container(
                         child: Column(
                           children: <Widget>[
