@@ -23,7 +23,6 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.red,
       body: SafeArea(
         child: Stack(children: <Widget>[
           Image.asset(
@@ -70,10 +69,9 @@ class _LoginState extends State<Login> {
                                   RegExp regex = RegExp(pattern);
                                   if (!regex.hasMatch(value)) {
                                     return 'Enter a valid email';
-                                  } else {
-                                    return null;
                                   }
                                 }
+                                return null;
                               },
                             ),
                           ),
@@ -126,19 +124,25 @@ class _LoginState extends State<Login> {
                         ),
                       ),
                       Center(
-                          child: RichText(
-                              text: TextSpan(
-                        children: [
-                          TextSpan(
-                              text: "Doesn't have an account? ",
-                              style: TextStyle(color: Colors.white)),
-                          TextSpan(
-                              text: "Sign Up here",
-                              style: TextStyle(
-                                  color: Colors.yellow,
-                                  decoration: TextDecoration.underline))
-                        ],
-                      ))),
+                        child: Padding(
+                            padding: const EdgeInsets.only(top: 5.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Text("Doesn't have an account? ",
+                                    style: TextStyle(color: Colors.white)),
+                                InkWell(
+                                    onTap: () {
+                                      Navigator.pushNamed(context, "/register");
+                                    },
+                                    child: Text("Sign Up here",
+                                        style: TextStyle(
+                                            color: Colors.yellow,
+                                            decoration:
+                                                TextDecoration.underline)))
+                              ],
+                            )),
+                      ),
                       Divider(),
                       Container(
                         child: Column(
