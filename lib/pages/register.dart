@@ -62,6 +62,7 @@ class _RegisterState extends State<Register> {
                               decoration: InputDecoration(
                                   hintText: "Full Name",
                                   icon: Icon(Icons.account_box),
+                                  border: InputBorder.none,
                                   isDense: true),
                               keyboardType: TextInputType.text,
                               controller: _nameController,
@@ -133,6 +134,7 @@ class _RegisterState extends State<Register> {
                               decoration: InputDecoration(
                                   hintText: "Email",
                                   icon: Icon(Icons.mail),
+                                  border: InputBorder.none,
                                   isDense: true),
                               keyboardType: TextInputType.emailAddress,
                               controller: _emailController,
@@ -164,6 +166,7 @@ class _RegisterState extends State<Register> {
                               decoration: InputDecoration(
                                   hintText: "Password",
                                   icon: Icon(Icons.lock),
+                                  border: InputBorder.none,
                                   isDense: true),
                               controller: _passwordController,
                               obscureText: true,
@@ -193,6 +196,7 @@ class _RegisterState extends State<Register> {
                               decoration: InputDecoration(
                                   hintText: "Confirm Password",
                                   icon: Icon(Icons.lock),
+                                  border: InputBorder.none,
                                   isDense: true),
                               controller: _cPasswordController,
                               obscureText: true,
@@ -201,6 +205,8 @@ class _RegisterState extends State<Register> {
                                   return "The password cannot be empty";
                                 } else if (value.length < 6) {
                                   return "The password length must be at least six";
+                                } else if (_cPasswordController.text != value) {
+                                  return "The passwords do not match";
                                 }
                                 return null;
                               },

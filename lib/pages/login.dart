@@ -60,6 +60,7 @@ class _LoginState extends State<Login> {
                               decoration: InputDecoration(
                                   hintText: "Email",
                                   icon: Icon(Icons.mail),
+                                  border: InputBorder.none,
                                   isDense: true),
                               keyboardType: TextInputType.emailAddress,
                               controller: _emailController,
@@ -91,6 +92,7 @@ class _LoginState extends State<Login> {
                               decoration: InputDecoration(
                                   hintText: "Password",
                                   icon: Icon(Icons.lock),
+                                  border: InputBorder.none,
                                   isDense: true),
                               controller: _passwordController,
                               validator: (value) {
