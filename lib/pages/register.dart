@@ -18,6 +18,7 @@ class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       backgroundColor: Colors.red,
       appBar: AppBar(
         title: Text("Register to FashApp"),
@@ -165,6 +166,7 @@ class _RegisterState extends State<Register> {
                                   icon: Icon(Icons.lock),
                                   isDense: true),
                               controller: _passwordController,
+                              obscureText: true,
                               keyboardType: TextInputType.visiblePassword,
                               validator: (value) {
                                 if (value.isEmpty) {
@@ -193,6 +195,7 @@ class _RegisterState extends State<Register> {
                                   icon: Icon(Icons.lock),
                                   isDense: true),
                               controller: _cPasswordController,
+                              obscureText: true,
                               validator: (value) {
                                 if (value.isEmpty) {
                                   return "The password cannot be empty";
@@ -213,7 +216,11 @@ class _RegisterState extends State<Register> {
                             color: Colors.red,
                             textColor: Colors.white,
                             elevation: 0.8,
-                            child: Text("Sign Up")),
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: 8.0, horizontal: 0.0),
+                              child: Text("Sign Up"),
+                            )),
                       ),
                     ],
                     direction: Axis.vertical,
@@ -236,6 +243,7 @@ class _RegisterState extends State<Register> {
   void radioValueChanged(e) {
     setState(() {
       groupValue = e;
+      gender = e;
     });
   }
 }

@@ -23,6 +23,7 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       body: SafeArea(
         child: Stack(children: <Widget>[
           Image.asset(
